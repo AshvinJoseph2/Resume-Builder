@@ -4,32 +4,36 @@ import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-function Preview() {
+function Preview({resumeDetails}) {
   return (
     <>
     <Box component="section" className='my-5 text-center p-5'>
       <Paper elevation={3} className=' text-center p-5'>
-      <h2>Name</h2>
-      <h5>JobTitle</h5>
-      <p><span>location</span> | <span>email</span> | <span>phone</span></p>
+      <h2>{resumeDetails?.fullName}</h2>
+      <h5>{resumeDetails?.jobTitle}</h5>
+      <p><span>{resumeDetails?.locaton}</span> | <span>{resumeDetails?.email}</span> | <span>{resumeDetails?.phone}</span></p>
       <p>
-        <a href="" target='-blank' className='me-1'>GITHUB</a>
-        <a href="" target='-blank' className='me-1'>LINKEDIN</a>
-        <a href="" target='-blank' className='me-1'>PORTFOLIO</a>
+        <a href={resumeDetails?.github} target='-blank' className='me-1'>{resumeDetails?.github}</a>
+        <a href={resumeDetails?.linkedin} target='-blank' className='me-1'>{resumeDetails?.linkedin}</a>
+        <a href={resumeDetails?.portfolio} target='-blank' className='me-1'>{resumeDetails?.portfolio}</a>
       </p>
      
       <Divider sx={{fontSize:'25px'}}>Summary</Divider>
-      <p style={{textAlign:'justify'}}> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto voluptatibus suscipit sed eos nam praesentium, architecto quae fugit, laborum veniam officia facere ipsam officiis asperiores veritatis molestiae in nihil doloremque!</p>
+      <p style={{textAlign:'justify'}}>{resumeDetails?.summary}</p>
       <Divider sx={{fontSize:'25px'}}>Education</Divider>
-      <h5>course</h5>
-      <p><span>college</span> | <span>university</span> | <span>year</span></p>
+      <h5>{resumeDetails?.course}</h5>
+      <p><span>{resumeDetails?.college}</span> | <span>{resumeDetails?.university}</span> | <span>{resumeDetails?.passoutYear}</span></p>
       <Divider sx={{fontSize:'25px'}}>Work Experience</Divider>
-      <h5>jobType</h5>
-      <p><span>company</span> | <span>location</span> | <span>duration</span></p>
+      <h5>{resumeDetails?.jobType}</h5>
+      <p><span>{resumeDetails?.company}</span> | <span>{resumeDetails?.cLocation}</span> | <span>{resumeDetails?.duration}</span></p>
       <Divider sx={{fontSize:'25px'}}>Skills</Divider>
       <Stack direction={'row'} justifyContent={'space-evenly'} sx={{flexWrap:'wrap',gap:'10px',my:2}}>
         {/* duplicated */}
-        <Button variant="contained">NODE</Button>
+        {
+          resumeDetails?.skills?.map(item=>(
+            <Button variant="contained">{item}</Button>
+           ))
+        }
       </Stack>
       </Paper>
     </Box>
