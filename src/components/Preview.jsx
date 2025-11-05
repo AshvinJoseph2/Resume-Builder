@@ -13,8 +13,8 @@ function Preview({resumeDetails}) {
       <h5>{resumeDetails?.jobTitle}</h5>
       <p><span>{resumeDetails?.locaton}</span> | <span>{resumeDetails?.email}</span> | <span>{resumeDetails?.phone}</span></p>
       <p>
-        <a href={resumeDetails?.github} target='-blank' className='me-1'>{resumeDetails?.github}</a>
-        <a href={resumeDetails?.linkedin} target='-blank' className='me-1'>{resumeDetails?.linkedin}</a>
+        <a href={resumeDetails?.github} target='-blank' className='me-1'>{resumeDetails?.github}</a> |  
+        <a href={resumeDetails?.linkedin} target='-blank' className='me-1'>{resumeDetails?.linkedin}</a> |  
         <a href={resumeDetails?.portfolio} target='-blank' className='me-1'>{resumeDetails?.portfolio}</a>
       </p>
      
